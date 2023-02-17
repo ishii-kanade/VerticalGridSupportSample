@@ -2,6 +2,7 @@ package com.example.verticalgridsupportsample
 
 import android.R
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import androidx.leanback.app.VerticalGridSupportFragment
 import androidx.leanback.widget.ArrayObjectAdapter
@@ -14,7 +15,6 @@ class VerticalGridFragment : VerticalGridSupportFragment() {
         super.onCreate(savedInstanceState)
         title = "Title"
         val gridPresenter = VerticalGridPresenter()
-        gridPresenter.numberOfColumns = 4
         setGridPresenter(gridPresenter)
         val adapter = ArrayObjectAdapter(PizzaCardPresenter())
         setAdapter(adapter)
@@ -24,6 +24,23 @@ class VerticalGridFragment : VerticalGridSupportFragment() {
         adapter.add("Pizza 4")
         adapter.add("Pizza 5")
         adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+        adapter.add("Pizza 6 with a very long title which will not fit")
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setOnItemViewSelectedListener { _, item, _, row ->
+            println("roguin" + item.toString())
+        }
     }
 
     private inner class PizzaCardPresenter : Presenter() {
